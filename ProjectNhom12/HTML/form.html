@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOBILE WORLD</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/form.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <ul class="header_nav">
+                <li class="item"><a href="">Trợ giúp</a></li>
+                <li class="item item_strong "><a href="">Đăng kí</a></li>
+                <li class="item item_strong"><a href="">Đăng nhập</a></li>
+            </ul>
+        </div>
+
+        <div class="navigation">
+            <ul class="nav">
+                <li><a href=""><img style="width: 100px" src="/IMG/1.png" alt=""></a></li>
+                <li><a href="./index.html">TRANG CHỦ</a></li>
+                <li><a href="/">FORM</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <form action="" method="POST" class="form" id="form--1">
+                <h3 class="form__heading">Form Dang Ki Thanh Vien</h3>
+
+                <p class="form__desc"></p>
+
+                <div class="form__spacer"></div>
+
+                <div class="form__group">
+                    <label for="fullname" class="form__label">Ho ten: </label>
+                    <input type="text" id="fullname" placeholder="VD: Thang Duy" name="fullname" class="form__control">
+                    <span class="form__message"></span>
+                </div>      <!--form__group-->
+
+                <div class="form__group">
+                    <label for="gender" class="form__label">Gioi tinh: </label>
+                    <div>
+                        <input name="gender" type="radio" id="gender" value="male" class="form__control">Nam
+                    </div>
+
+                    <div>
+                        <input name="gender" type="radio" id="gender" value="female" class="form__control">Nu
+                    </div>
+                    <span class="form__message"></span>
+                </div>      <!--form__group-->
+                
+                <div class="form__group">
+                    <label for="dob" class="form__label">Ngay sinh: </label>
+                    <input type="date" id="dob" name="dob" class="form__control">
+                    <span class="form__message"></span>
+                </div>      <!--form__group-->
+
+                <div class="form__group">
+                    <label for="email" class="form__label">Email</label>
+                    <input type="email" id="email" placeholder="VD: email@domain.com" name="email" class="form__control">
+                    <span class="form__message"></span>
+                </div>      <!--form__group-->
+
+                <div class="form__group">
+                    <label for="sothich" class="form__label">So thich: </label>
+                    <div>
+                        <input name="sothich" type="checkbox" id="anuong" value="anuong" class="form__control">An uong
+                    </div>
+
+                    <div>
+                        <input name="sothich" type="checkbox" id="thethao" value="thethao" class="form__control">The thao
+                    </div>
+
+                    <div>
+                        <input name="sothich" type="checkbox" id="dulich" value="dulich" class="form__control">Du lich
+                    </div>
+
+                    <div>
+                        <input name="sothich" type="checkbox" id="xemphim" value="xemphim" class="form__control">Xem phim
+                    </div>
+
+                    <div>
+                        <input name="sothich" type="checkbox" id="nghenhac" value="nghenhac" class="form__control">Nghe nhac
+                    </div>
+                    <span class="form__message"></span>
+                </div>      <!--form__group-->
+
+                <div class="form__group">
+                    <label for="job" class="form__label">Cong viec hien tai: </label>
+                    <select name="job" id="job" class="form__control">
+                        <option value="">--Chon nghe nghiep</option>
+                        <option value="student">Hoc sinh, sinh vien</option>
+                        <option value="teacher">Giang vien</option>
+                        <option value="worker">Nguoi lao dong</option>
+                        <option value="others">Khac</option>
+                    </select>
+                    <span class="form__message"></span>
+                </div>      <!--form__group-->
+
+                <button class="form__submit">Dang Ki</button>
+                <button class="form__cancel">Huy</button>
+            </form>
+        </div>      <!--main-->
+
+        <div class="footer">
+            <div class="footer1">
+            <div class="Thongtinweb">
+                <h2>THÔNG TIN MOBIE WORLD</h2>
+                <P>Địa chỉ: 12 Nguyễn Văn Bảo, P4, Q.Gò Vấp, TP.Hồ Chí Minh</P>
+                <P>Hotline: 1900 5858 20</P>
+            </div>
+            <div class="DanhSach">
+                <h2>THÔNG TIN NHÓM 12</h2>
+                <ul>
+                    <li>Võ Hoàng Sơn</li>
+                    <li>Nguyễn Tiến Thành</li>
+                    <li>Cồ Duy Thắng</li>
+                    <li>Chu Công Qúy</li>
+                    <li>Hàn Thế Sơn</li>
+                    <li>Nguyễn Anh Tài</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
