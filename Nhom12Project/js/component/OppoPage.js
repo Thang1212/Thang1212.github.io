@@ -31,7 +31,7 @@ function SamsungPage({ oppos, sortingType }) {
                                 <p>${op.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'oppos', ${index}); showSuccessToast()"
+                                    onclick="dispatch('increaseCart', 'oppos', ${index}); showSuccessToast()"
                                 >
                                 </i>
                             </div>
@@ -53,7 +53,7 @@ function SamsungPage({ oppos, sortingType }) {
                                 <p>${op.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'oppos', ${index}); showSuccessToast()"
+                                    onclick="dispatch('increaseCart', 'oppos', ${index}); showSuccessToast()"
                                 >
                                 </i>
                             </div>

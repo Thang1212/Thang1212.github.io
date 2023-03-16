@@ -31,7 +31,7 @@ function IphonePage({ iphones, sortingType }) {
                                 <p>${iphone.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'iphones', ${index}); showSuccessToast();"
+                                    onclick="dispatch('increaseCart', 'iphones', ${index}); showSuccessToast();"
                                 >
                                 </i>
                             </div>
@@ -53,7 +53,7 @@ function IphonePage({ iphones, sortingType }) {
                                 <p>${iphone.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'iphones', ${index}); showSuccessToast();"
+                                    onclick="dispatch('increaseCart', 'iphones', ${index}); showSuccessToast();"
                                 >
                                 </i>
                             </div>

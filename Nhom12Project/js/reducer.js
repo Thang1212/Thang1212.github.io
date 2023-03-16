@@ -29,14 +29,15 @@ const init = {
     totalMoney: storage.getTotalMoney(),
 }
 
+let MoneyFormat = new Intl.NumberFormat().format;
+
 const actions = {
     sortingPrice(state, type) {
         state.sortingType = type;
     },
 
-    addCart(state, phoneBrand, index) {
-        let MoneyFormat = new Intl.NumberFormat().format;
-        let currentProductPrice = state[phoneBrand][index].price;
+    increaseCart(state, phoneBrand, phoneIndex) {
+        let currentProductPrice = state[phoneBrand][phoneIndex].price;
 
         state.totalMoney.price += currentProductPrice;
         state.totalMoney.priceTag = MoneyFormat(state.totalMoney.price);
@@ -44,7 +45,7 @@ const actions = {
 
         if (state.shoppingCarts.length) {
             for (let x of state.shoppingCarts) {
-                if (x.phoneBrand === phoneBrand && x.index === index) {
+                if (x.phoneBrand === phoneBrand && x.phoneIndex === phoneIndex) {
                     x.amount += 1;
                     x.price += currentProductPrice;
                     x.priceTag = MoneyFormat(x.price);
@@ -56,7 +57,7 @@ const actions = {
         } 
 
         state.shoppingCarts.push({ 
-            amount: 1, phoneBrand, index, 
+            amount: 1, phoneBrand, phoneIndex, 
             price: currentProductPrice,
             priceTag: MoneyFormat(currentProductPrice)
         })
@@ -64,9 +65,40 @@ const actions = {
         storage.setCarts(state.shoppingCarts)
     }, 
     
-    // removeCart(state, phoneBrand, index) {
-        
-    // }
+    decreaseCart(state, phoneBrand, phoneIndex, cartIndex) {
+        let currentProductPrice = state[phoneBrand][phoneIndex].price;
+
+        state.totalMoney.price -= currentProductPrice;
+        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.price);
+        storage.setTotalMoney(state.totalMoney);
+
+        if (state.shoppingCarts[cartIndex].amount === 1) {
+            state.shoppingCarts.splice(cartIndex, 1);
+            storage.setCarts(state.shoppingCarts);
+            return;
+        }
+
+        state.shoppingCarts[cartIndex].amount -= 1;
+        state.shoppingCarts[cartIndex].price -= currentProductPrice;
+        state.shoppingCarts[cartIndex].priceTag = MoneyFormat(state.shoppingCarts[cartIndex].price);
+        storage.setCarts(state.shoppingCarts);
+    },
+
+    changeCart(state, phoneBrand, phoneIndex, cartIndex, value = 0) {
+        value > state.shoppingCarts[cartIndex].amount ?
+        this.increaseCart(state, phoneBrand, phoneIndex)
+        : 
+        this.decreaseCart(state, phoneBrand, phoneIndex, cartIndex)
+    },
+
+    deleteCart(state, cartIndex) {
+        state.totalMoney.price -= state.shoppingCarts[cartIndex].price;
+        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.price);
+        storage.setTotalMoney(state.totalMoney);
+
+        state.shoppingCarts.splice(cartIndex, 1);
+        storage.setCarts(state.shoppingCarts);
+    },
 }
 
 export default function reducer(state = init, action, args) {

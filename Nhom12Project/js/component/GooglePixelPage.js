@@ -31,7 +31,7 @@ function GooglePixelPage({ googlePixels, sortingType }) {
                                 <p>${ggp.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'googlePixels', ${index}); showSuccessToast();"
+                                    onclick="dispatch('increaseCart', 'googlePixels', ${index}); showSuccessToast();"
                                 >
                                 </i>
                             </div>
@@ -53,7 +53,7 @@ function GooglePixelPage({ googlePixels, sortingType }) {
                                 <p>${ggp.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'googlePixels', ${index}); showSuccessToast();"
+                                    onclick="dispatch('increaseCart', 'googlePixels', ${index}); showSuccessToast();"
                                 >
                                 </i>
                             </div>

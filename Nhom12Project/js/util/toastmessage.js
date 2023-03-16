@@ -54,8 +54,17 @@ function toast({
 function showSuccessToast() {
     toast({
         title: 'Success',
-        message: ' Bạn đã thêm sản phẩm vào giỏ hàng',
+        message: ' Bạn đã thêm sản phẩm vào giỏ hàng!',
         type: 'success',
+        duration: 5000
+    });
+}
+
+function showWarningToast() {
+    toast({
+        title: 'Warning',
+        message: 'Bạn đã xoá sản phẩm khỏi giỏ hàng!',
+        type: 'warning',
         duration: 5000
     });
 }

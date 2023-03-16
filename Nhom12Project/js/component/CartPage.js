@@ -9,6 +9,8 @@ function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, total
     return html`
         ${Header()}
 
+        <div id="toast"></div>
+
         <div id="cart">
             <div class="money">
                 <table>
@@ -21,26 +23,34 @@ function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, total
                         </tr>
                     </thead>
                     <tbody>
-                        ${shoppingCarts.map(product => html`
+                        ${shoppingCarts.map((product, index) => html`
                             <tr class="product">
                                 <td class="image">
-                                    <img src=${phones[product.phoneBrand][product.index].img} alt="" />
-                                    <p>${phones[product.phoneBrand][product.index].name}</p>
+                                    <img src=${phones[product.phoneBrand][product.phoneIndex].img} alt="" />
+                                    <p>${phones[product.phoneBrand][product.phoneIndex].name}</p>
                                 </td>
                                 <td class="center">
-                                    ${phones[product.phoneBrand][product.index].priceTags.actualPrice + '₫'}
+                                    ${phones[product.phoneBrand][product.phoneIndex].priceTags.actualPrice + '₫'}
                                 </td>
                                 <td class="center">
                                     <input 
                                         type="number" id="b" name="b" 
                                         min="0" max="10" 
                                         value=${product.amount}
+                                        onclick="
+                                            dispatch('changeCart', '${product.phoneBrand}', ${product.phoneIndex}, ${index}, this.value);
+                                            this.value > ${product.amount} ? showSuccessToast() : showWarningToast();
+                                        "
                                     >
                                 </td>
                                 <td class="center">${product.priceTag + 'đ'}</td>
                                 <td>
                                     <i 
                                         class="fas fa-times close"
+                                        onclick="
+                                            dispatch('deleteCart', ${index});
+                                            showWarningToast();
+                                        "
                                     >
                                     </i>
                                 </td>
@@ -76,5 +86,3 @@ function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, total
 }
 
 export default connect()(CartPage);
-
-                                        // onclick="dispatch('removeCart', ${product.phoneBrand}, ${product.index})"

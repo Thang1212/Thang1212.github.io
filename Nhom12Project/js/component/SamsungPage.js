@@ -31,7 +31,7 @@ function SamsungPage({ samsungs, sortingType }) {
                                 <p>${samsung.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'samsungs', ${index}); showSuccessToast();"
+                                    onclick="dispatch('increaseCart', 'samsungs', ${index}); showSuccessToast();"
                                 ></i>
                             </div>
 
@@ -52,7 +52,7 @@ function SamsungPage({ samsungs, sortingType }) {
                                 <p>${samsung.priceTags.initPrice + 'đ'}</p>
                                 <i 
                                     class="fa-solid fa-cart-shopping cart"
-                                    onclick="dispatch('addCart', 'samsungs', ${index}); showSuccessToast();"
+                                    onclick="dispatch('increaseCart', 'samsungs', ${index}); showSuccessToast();"
                                 ></i>
                             </div>
 

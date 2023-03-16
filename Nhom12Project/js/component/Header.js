@@ -15,7 +15,7 @@ function Header({ logo, shoppingCarts }) {
                 <button>Kiểm tra đơn hàng</button>
 
                 <div class="icon">
-                    <a class="fa-solid fa-cart-shopping cart" href="../../html/cart.html"></a>
+                    <a class="fa-solid fa-cart-shopping cart" href="./cart.html"></a>
                     <p>${shoppingCarts.reduce((acc, product) => acc += product.amount, 0)}</p>
                     <i class="far fa-user user" aria-hidden="true"></i>
                     <span><a href="Signup.html">Tài khoản</a></span>
@@ -24,18 +24,18 @@ function Header({ logo, shoppingCarts }) {
 
             <div id="sub-header">
                 <ul class="nav">
-                    <li><a href="../../index.html">Trang chủ</a></li>
+                    <li><a href="./index.html">Trang chủ</a></li>
 
-                    <li><a href="../../html/iphoneproduct.html">Iphone</a>
+                    <li><a href="./iphoneproduct.html">Iphone</a>
                     </li>
 
-                    <li><a href="../html/samsungproduct.html">Samsung</a>
+                    <li><a href="./samsungproduct.html">Samsung</a>
                     </li>
 
-                    <li><a href="../html/googlepixelproduct.html">Google Pixel</a>
+                    <li><a href="./googlepixelproduct.html">Google Pixel</a>
                     </li>
 
-                    <li><a href="../html/oppoproduct.html">Oppo</a>
+                    <li><a href="./oppoproduct.html">Oppo</a>
                     </li>
 
                     <li><a href="">Phụ kiện </a>
