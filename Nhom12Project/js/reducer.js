@@ -26,7 +26,11 @@ const init = {
 
     shoppingCarts: storage.getCarts(), 
     
+    vouchers: ['NHOM12P', 'THEROCK'],
+
     totalMoney: storage.getTotalMoney(),
+
+    // users: storage.getUsers(),
 }
 
 let MoneyFormat = new Intl.NumberFormat().format;
@@ -39,8 +43,11 @@ const actions = {
     increaseCart(state, phoneBrand, phoneIndex) {
         let currentProductPrice = state[phoneBrand][phoneIndex].price;
 
-        state.totalMoney.price += currentProductPrice;
-        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.price);
+        state.totalMoney.initPrice += currentProductPrice;
+        state.totalMoney.discountPrice = 0;
+        state.totalMoney.discountPriceTag = MoneyFormat(0);
+        state.totalMoney.payment = state.totalMoney.initPrice;
+        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.payment);
         storage.setTotalMoney(state.totalMoney);
 
         if (state.shoppingCarts.length) {
@@ -68,8 +75,11 @@ const actions = {
     decreaseCart(state, phoneBrand, phoneIndex, cartIndex) {
         let currentProductPrice = state[phoneBrand][phoneIndex].price;
 
-        state.totalMoney.price -= currentProductPrice;
-        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.price);
+        state.totalMoney.initPrice -= currentProductPrice;
+        state.totalMoney.discountPrice = 0;
+        state.totalMoney.discountPriceTag = MoneyFormat(0);
+        state.totalMoney.payment = state.totalMoney.initPrice;
+        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.payment);
         storage.setTotalMoney(state.totalMoney);
 
         if (state.shoppingCarts[cartIndex].amount === 1) {
@@ -92,12 +102,30 @@ const actions = {
     },
 
     deleteCart(state, cartIndex) {
-        state.totalMoney.price -= state.shoppingCarts[cartIndex].price;
-        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.price);
+        state.totalMoney.initPrice -= state.shoppingCarts[cartIndex].price;
+        state.totalMoney.discountPrice = 0;
+        state.totalMoney.discountPriceTag = MoneyFormat(0);
+        state.totalMoney.priceTag = MoneyFormat(state.totalMoney.initPrice);
         storage.setTotalMoney(state.totalMoney);
 
         state.shoppingCarts.splice(cartIndex, 1);
         storage.setCarts(state.shoppingCarts);
+    },
+
+    applyVoucher(state, inputValue) {
+        if (state.vouchers.includes(inputValue)) {
+            state.totalMoney.discountPrice = Math.floor(state.totalMoney.initPrice * 2/10);
+            state.totalMoney.payment = state.totalMoney.initPrice - state.totalMoney.discountPrice;
+
+            state.totalMoney.discountPriceTag = MoneyFormat(state.totalMoney.discountPrice);
+            state.totalMoney.priceTag = MoneyFormat(state.totalMoney.payment);
+
+            storage.setTotalMoney(state.totalMoney);
+
+            return true;
+        }
+
+        return false;
     },
 }
 

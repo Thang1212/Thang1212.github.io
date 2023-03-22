@@ -3,7 +3,7 @@ import Header from './Header.js'
 import Footer from './Footer.js' 
 import { connect } from '../store.js';
 
-function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, totalMoney }) {
+function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, totalMoney, vouchers }) {
     let phones = { iphones, samsungs, oppos, googlePixels };
 
     return html`
@@ -61,8 +61,13 @@ function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, total
             </div>     
 
             <div class="sum_price">
-                <input type="text" name="" id="voucher" placeholder="Nhập mã giảm giá">
-                <input type="submit" value="Áp dụng" id="btn_voucher">
+                <input 
+                    type="text" name="" id="voucher" placeholder="Nhập mã giảm giá"
+                    onchange="dispatch('applyVoucher', this.value) ? showSuccessToast() : showErrorToast()"
+                >
+                <input 
+                    type="submit" value="Áp dụng" id="btn_voucher"
+                >
 
                 <div class="price">
                     <div class="price1">
@@ -71,14 +76,14 @@ function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, total
                     </div>
 
                     <div class="price2">
-                        <h3>0đ</h3>
+                        <h3>${totalMoney.discountPriceTag + 'đ'}</h3>
                         <h3>${totalMoney.priceTag + 'đ'}</h3>
                     </div>
                 </div>
 
                 <input type="submit" name="" value="ĐẶT HÀNG" id="order">
             </div>
-             
+
         </div>          
 
         ${Footer()}

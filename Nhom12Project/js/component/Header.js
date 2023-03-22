@@ -18,7 +18,7 @@ function Header({ logo, shoppingCarts }) {
                     <a class="fa-solid fa-cart-shopping cart" href="./cart.html"></a>
                     <p>${shoppingCarts.reduce((acc, product) => acc += product.amount, 0)}</p>
                     <i class="far fa-user user" aria-hidden="true"></i>
-                    <span><a href="Signup.html">Tài khoản</a></span>
+                    <span><a href="./signin.html">Tài khoản</a></span>
                 </div>
             </div>
 

@@ -1,4 +1,4 @@
 import { attach } from './store.js';
-import Home from './component/Home.js';
+import HomePage from './component/HomePage.js';
 
-attach(Home, document.getElementById('main'));
+attach(HomePage, document.getElementById('main'));
