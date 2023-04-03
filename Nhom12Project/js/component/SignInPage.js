@@ -3,7 +3,7 @@ import Header from './Header.js'
 import Footer from './Footer.js' 
 import { connect } from '../store.js';
 
-function Home({ panelImgs }) {
+function SignInPage({ panelImgs }) {
     return html`
         ${Header()}
 
@@ -33,4 +33,4 @@ function Home({ panelImgs }) {
     `;
 }
 
-export default connect()(Home);
+export default connect()(SignInPage);

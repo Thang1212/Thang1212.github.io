@@ -1,3 +1,16 @@
+export function arrayFormat(value) {
+    let temp = "[";
+    let valueLength = value.length;
+    for (var i = 0; i < valueLength; ++i) {
+        temp += "'" + value[i] + "'";
+        if (i < valueLength - 1)
+            temp += ",";
+    }
+    temp += "]";
+
+    return temp;
+}
+
 export default function html([first, ...strings], ...values) {
     return values.reduce((acc, curr) => acc.concat(curr, strings.shift()), [first])
         .filter(x => x && x !== true || x === 0)

@@ -51,28 +51,28 @@ function toast({
     }
 }
 
-function showSuccessToast() {
+function showSuccessToast(message = 'Bạn đã thêm sản phẩm vào giỏ hàng!') {
     toast({
         title: 'Success',
-        message: ' Bạn đã thêm sản phẩm vào giỏ hàng!',
+        message,
         type: 'success',
         duration: 5000
     });
 }
 
-function showWarningToast() {
+function showWarningToast(message = 'Bạn đã xoá sản phẩm khỏi giỏ hàng!') {
     toast({
         title: 'Warning',
-        message: 'Bạn đã xoá sản phẩm khỏi giỏ hàng!',
+        message,
         type: 'warning',
         duration: 5000
     });
 }
 
-function showErrorToast() {
+function showErrorToast(message = 'Co loi xay ra, vui long lien he quan tri vien') {
     toast({
         title: 'Error',
-        message: 'Co loi xay ra, vui long lien he quan tri vien',
+        message,
         type: 'error',
         duration: 5000
     });

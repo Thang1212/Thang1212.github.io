@@ -1,4 +1,4 @@
-import html from '../core.js';
+import html, { arrayFormat } from '../core.js';
 import Header from './Header.js' 
 import Footer from './Footer.js' 
 import { connect } from '../store.js';
@@ -63,7 +63,8 @@ function CartPage({ shoppingCarts, iphones, samsungs, oppos, googlePixels, total
             <div class="sum_price">
                 <input 
                     type="text" name="" id="voucher" placeholder="Nhập mã giảm giá"
-                    onchange="dispatch('applyVoucher', this.value) ? showSuccessToast() : showErrorToast()"
+                    onchange="dispatch('applyVoucher', this.value); 
+                    ${arrayFormat(vouchers)}.includes(this.value) ? showSuccessToast('Nhập mã giảm giá thành công!') : showErrorToast('Nhập mã giảm giá thất bại!');"
                 >
                 <input 
                     type="submit" value="Áp dụng" id="btn_voucher"
