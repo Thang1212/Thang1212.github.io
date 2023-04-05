@@ -28,11 +28,11 @@ export default {
     },
 
     getUsers() {
-        return JSON.parse(localStorage.getItem(USERS_STORAGE_KEYS)) || { fullName: '', email: '', psw: '', gender: null };
+        return JSON.parse(localStorage.getItem(USERS_STORAGE_KEYS)) || [];
     },
 
-    setUsers(totalMoney) {
-        localStorage.setItem(TOTALMONEY_STORAGE_KEYS, JSON.stringify(USERS_STORAGE_KEYS));
+    setUsers(users) {
+        localStorage.setItem(USERS_STORAGE_KEYS, JSON.stringify(users));
     },
 }
         
@@ -46,8 +46,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A15 Bionic',
-            RAM: '6 GB',
-            'Dung lượng': '1 TB',
+            // RAM: '6 GB',
+            // 'Dung lượng': '1 TB',
+            'RAM/Dung lượng': '6 GB/1 TB',
             'Camera sau': '12 MP',
             'Camera trước': '12 MP',
             Pin: '4323 mAh',
@@ -65,8 +66,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A16 Bionic',
-            RAM: '6 GB',
-            'Dung luong': '512 GB',
+            // RAM: '6 GB',
+            // 'Dung luong': '512 GB',
+            'RAM/Dung lượng': '6 GB/512 GB',
             'Camera sau': '48 MP',
             'Camera truoc': '12 MP',
             Pin: '4323 mAh',
@@ -84,8 +86,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A16 Bionic',
-            RAM: '6 GB',
-            'Dung luong': '512 GB',
+            // RAM: '6 GB',
+            // 'Dung luong': '512 GB',
+            'RAM/Dung lượng': '6 GB/512 GB',
             'Camera sau': '48 MP',
             'Camera truoc': '12 MP',
             Pin: '3200 mAh',
@@ -103,8 +106,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A15 Bionic',
-            RAM: '6 GB',
-            'Dung luong': '512 GB',
+            // RAM: '6 GB',
+            // 'Dung luong': '512 GB',
+            'RAM/Dung lượng': '6 GB/512 GB',
             'Camera sau': '12 MP',
             'Camera truoc': '12 MP',
             Pin: '3095mAh',
@@ -122,8 +126,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A15 Bionic',
-            RAM: '6 GB',
-            'Dung luong': '128 GB',
+            // RAM: '6 GB',
+            // 'Dung luong': '128 GB',
+            'RAM/Dung lượng': '6 GB/128 GB',
             'Camera sau': '12 MP',
             'Camera truoc': '12 MP',
             Pin: '4325mAh',
@@ -141,8 +146,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A15 Bionic',
-            RAM: '6 GB',
-            'Dung luong': '128 GB',
+            // RAM: '6 GB',
+            // 'Dung luong': '128 GB',
+            'RAM/Dung lượng': '6 GB/128 GB',
             'Camera sau': '12 MP',
             'Camera truoc': '12 MP',
             Pin: '3279mAh',
@@ -160,8 +166,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A15 Bionic',
-            RAM: '4 GB',
-            'Dung luong': '128 GB',
+            // RAM: '4 GB',
+            // 'Dung luong': '128 GB',
+            'RAM/Dung lượng': '4 GB/128 GB',
             'Camera sau': '12 MP',
             'Camera truoc': '12 MP',
             Pin: '3240mAh',
@@ -179,8 +186,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A15 Bionic',
-            RAM: '4 GB',
-            'Dung luong': '128 GB',
+            // RAM: '4 GB',
+            // 'Dung luong': '128 GB',
+            'RAM/Dung lượng': '4 GB/128 GB',
             'Camera sau': '12 MP',
             'Camera truoc': '12 MP',
             Pin: '2438mAh',
@@ -198,8 +206,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A14 Bionic',
-            RAM: '4 GB',
-            'Dung luong': '64 GB',
+            // RAM: '4 GB',
+            // 'Dung luong': '64 GB',
+            'RAM/Dung lượng': '4 GB/128 GB',
             'Camera sau': '12 MP',
             'Camera truoc': '12 MP',
             Pin: '2815mAh',
@@ -217,8 +226,9 @@ export const iphones = [
         },
         details: {
             Chip: 'Apple A13 Bionic',
-            RAM: '4 GB',
-            'Dung luong': '64 GB',
+            // RAM: '4 GB',
+            // 'Dung luong': '64 GB',
+            'RAM/Dung lượng': '4 GB/64 GB',
             'Camera sau': '12 MP',
             'Camera truoc': '12 MP',
             Pin: '3110mAh',
@@ -238,8 +248,9 @@ export const samsungs = [
         },
         details: {
             Chip: 'Snapdragon 8+ Gen 1',
-            RAM: '12 GB',
-            'Dung lượng': '256 GB',
+            // RAM: '12 GB',
+            // 'Dung lượng': '256 GB',
+            'RAM/Dung lượng': '12 GB/256 GB',
             'Camera sau': '50 MP',
             'Camera trước': '10 MP',
             Pin: '4400 mAh',

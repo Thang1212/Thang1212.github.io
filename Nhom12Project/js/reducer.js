@@ -1,7 +1,7 @@
 import storage, { iphones, samsungs, googlePixels, oppos } from './util/storage.js';
 
 const init = {
-    logo: 'https://drive.google.com/uc?export=view&id=1_O4pphVrCS0SsWBpELRjfd8KxpDL87mS',
+    logo: 'https://drive.google.com/uc?export=view&id=1NlE5IQq064nBUXG7iUL3CPyqULeHTvc0',
 
     sortingType: 'default',
 
@@ -30,7 +30,8 @@ const init = {
 
     totalMoney: storage.getTotalMoney(),
 
-    // users: storage.getUsers(),
+    users: storage.getUsers(),
+
 }
 
 let MoneyFormat = new Intl.NumberFormat().format;
@@ -121,12 +122,37 @@ const actions = {
             state.totalMoney.priceTag = MoneyFormat(state.totalMoney.payment);
 
             storage.setTotalMoney(state.totalMoney);
-
-            return true;
         }
-
-        return false;
     },
+
+    createUserAccount(state) {
+        if (!state.users.length || state.users[state.users.length-1].isValidate) {
+            state.users.push({
+                fullname: null,
+                username: null,
+                phonenumber: null,
+                address: null,
+                email: null,
+                password: null,
+                isValidate: false,
+            })
+
+            storage.setUsers(state.users);
+        }
+    },
+
+    validateFullNameToUser(state, nameValue) {
+        state.users[state.users.length-1].fullname = nameValue;
+        storage.setUsers(state.users);
+    },
+
+    validateUserNameToUser(state, usernameValue) {
+        let isUserNameApprove = !state.users.some(user => user.username !== usernameValue);
+
+        if (isUserNameApprove === true)
+            console.log('same username');
+    },
+
 }
 
 export default function reducer(state = init, action, args) {

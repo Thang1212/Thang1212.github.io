@@ -3,56 +3,41 @@ import { connect } from '../store.js';
 
 function Header({ logo, shoppingCarts }) {
     return html`
-        <div id="head">
-            <div id="header">
-                <img src=${logo} alt="">
+        <header class="container-fluid p-3">
+            <div class="row">
+                <a href="#" class="header__logo col-lg-3 d-flex justify-content-center">
+                    <img src="${logo}" alt="" class="logo__img"> 
+                </a>
 
-                <div class="form">
-                    <input type="text" placeholder="Tìm kiếm sản phẩm">
-                    <i class="fa-solid fa-magnifying-glass search"></i>
+                <div class="header__search d-flex align-items-center col-lg-5">
+                    <input type="" name="" value="" placeholder="Tìm kiếm sản phẩm" class="search__input p-2 flex-grow-1 border border-white rounded-pill">
+                    <button type="" class="btn btn-primary rounded-pill">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
-
-                <button>Kiểm tra đơn hàng</button>
-
-                <div class="icon">
-                    <a class="fa-solid fa-cart-shopping cart" href="./cart.html"></a>
-                    <p>${shoppingCarts.reduce((acc, product) => acc += product.amount, 0)}</p>
-                    <i class="far fa-user user" aria-hidden="true"></i>
-                    <span><a href="./signin.html">Tài khoản</a></span>
+        
+                <div class="header__userinfo col-lg-4 d-flex align-items-center justify-content-around">
+                    <button type="" class="userinfo__bill btn btn-light"><strong>Kiểm tra đơn hàng</strong></button>
+        
+                    <button type="" class="userinfo__cart btn btn-light p-2">
+                        <a href="#" class="text-dark">
+                            <p class="cart__amount bg-info">
+                                ${shoppingCarts.reduce((acc, product) => acc += product.amount, 0)}
+                            </p>
+                            <i class="cart__icon fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </button>
+        
+                    <button type="" class="userinfo__signin btn btn-outline-secondary">
+                        <a href="#" class="signin__link text-dark text-decoration-none">
+                            <i class="signin__icon far fa-user"></i>
+                            <span><strong>Tài khoản</strong></span>
+                        </a>
+                    </button>
                 </div>
-            </div>
-
-            <div id="sub-header">
-                <ul class="nav">
-                    <li><a href="./index.html">Trang chủ</a></li>
-
-                    <li><a href="./iphoneproduct.html">Iphone</a>
-                    </li>
-
-                    <li><a href="./samsungproduct.html">Samsung</a>
-                    </li>
-
-                    <li><a href="./googlepixelproduct.html">Google Pixel</a>
-                    </li>
-
-                    <li><a href="./oppoproduct.html">Oppo</a>
-                    </li>
-
-                    <li><a href="">Phụ kiện </a>
-                        <i class="fa-solid fa-angle-down icon"></i>
-                        <ul class="sub-nav Accessory ">
-                            <li><a href="">Balo - Túi đeo</a></li>
-                            <li><a href="">Thiết bị mạng</a></li>
-                            <li><a href="">Đế tảng nhiệt</a></li>
-                            <li><a href="">Phụ kiên Razer</a></li>
-                            <li><a href="">Phụ kiên HyperX</a></li>
-                            <li><a href="">Phụ kiện PC</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    `;
+            </div>  
+        </header>
+    `
 }
 
 export default connect()(Header);

@@ -3,7 +3,7 @@ import Header from './Header.js'
 import Footer from './Footer.js' 
 import { connect } from '../store.js';
 
-function SignInPage({ panelImgs }) {
+function SignInPage({ }) {
     return html`
         ${Header()}
 
@@ -24,7 +24,15 @@ function SignInPage({ panelImgs }) {
 
                     <button class="btn">Login</button>
 
-                    <p class="text">Don't have an account? <a href="./signup.html">Register</a> </p>
+                    <p class="text">
+                        Don't have an account?
+                        <a 
+                            href="./signup.html"
+                            onclick="dispatch('createUserAccount')"
+                        >
+                            Register
+                        </a>
+                    </p>
                 </form>
             </div> 
         </div>
